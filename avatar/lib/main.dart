@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'splash_screen.dart';
-// import 'main_menu.dart';
-// import 'sign_up.dart';
+import 'login_page.dart';
+import 'sign_up.dart';
 // import 'home_page.dart';
 
 void main() => runApp(MaterialApp(
@@ -13,8 +13,8 @@ void main() => runApp(MaterialApp(
   ),
   home: SplashScreen(),
   routes: <String, WidgetBuilder>{
-    // '/MainMenu': (BuildContext context) => new MainMenu(),
-    // '/SignUp': (BuildContext context) => new SignUp(),
+    '/LoginPage': (BuildContext context) => new LoginPage(),
+    '/SignUp': (BuildContext context) => new SignUp(),
     // '/HomePage': (BuildContext context) => new HomePage(),
   },
 ));
