@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'splash_screen.dart';
 import 'login_page.dart';
 import 'sign_up.dart';
-// import 'home_page.dart';
+import 'navigation_av.dart';
 
 void main() => runApp(MaterialApp(
   title: 'Flutter Fahri',
@@ -15,7 +15,7 @@ void main() => runApp(MaterialApp(
   routes: <String, WidgetBuilder>{
     '/LoginPage': (BuildContext context) => new LoginPage(),
     '/SignUp': (BuildContext context) => new SignUp(),
-    // '/HomePage': (BuildContext context) => new HomePage(),
+    '/NavAvatar': (BuildContext context) => new NavAvatar(),
   },
 ));
 

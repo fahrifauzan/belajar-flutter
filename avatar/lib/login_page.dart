@@ -103,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                           minWidth: 400.0,
                           height: 42.0,
                           onPressed: (){
-                            Navigator.of(context).pushReplacementNamed('/HomePage');
+                            Navigator.of(context).pushReplacementNamed('/NavAvatar');
                           },
                           child: Text(
                             "Log In",
