@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-// import 'package:belajar_flutter/pages/menu_page.dart';
-// import 'package:belajar_flutter/pages/timeline_page.dart';
-// import 'package:belajar_flutter/pages/map_page.dart';
-// import 'package:belajar_flutter/pages/cart_page.dart';
-// import 'package:belajar_flutter/pages/profile_page.dart';
+import 'package:avatar/pages/menu_page.dart';
+import 'package:avatar/pages/timeline_page.dart';
+import 'package:avatar/pages/map_page.dart';
+import 'package:avatar/pages/cart_page.dart';
+import 'package:avatar/pages/profile_page.dart';
 
 
 class NavAvatar extends StatefulWidget {
@@ -17,7 +17,7 @@ class _NavAvatarState extends State<NavAvatar> {
 
   @override
     void initState() {
-      // list..add(MenuPage())..add(TimeLinePage())..add(MapPage())..add(CartPage())..add(ProfilePage());
+      list..add(MenuPage())..add(TimeLinePage())..add(MapPage())..add(CartPage())..add(ProfilePage());
       super.initState();
     }
 
