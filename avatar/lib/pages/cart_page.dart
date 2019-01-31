@@ -35,12 +35,50 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
- 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: new Padding(
-        padding: const EdgeInsets.only(top: 12.0),
+    return Scaffold (
+      body: Stack(
+        children: <Widget>[
+          Column(
+            children: <Widget>[
+              Container(
+                margin: new EdgeInsets.only(top: 200.0),
+              ),
+              Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.home, 
+                    color: new Color(0xff5E5F5F)
+                  ),
+                  Text(
+                  "MENU", 
+                    style: TextStyle(
+                      color: new Color(0xff36A5C1),
+                      fontSize: 12.0,
+                      letterSpacing: 0.0,
+                      fontWeight: FontWeight.bold
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          new Container(
+            margin: new EdgeInsets.only(top: 200.0),
+            child: MetroGrid(),
+          )
+        ],
+      )
+    );
+  }
+}
+
+class MetroGrid extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return Padding(
+      padding: const EdgeInsets.only(top: 12.0),
         child: new StaggeredGridView.count(
           crossAxisCount: 4,
           staggeredTiles: _staggeredTiles,
@@ -48,7 +86,6 @@ class _CartPageState extends State<CartPage> {
           mainAxisSpacing: 4.0,
           crossAxisSpacing: 4.0,
         )
-      )
     );
   }
 }
