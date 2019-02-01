@@ -53,6 +53,9 @@ class _SignUpState extends State<SignUp> {
                               color: new Color(0xffFFFFFF),
                               fontStyle: FontStyle.italic
                             ),
+                            enabledBorder: UnderlineInputBorder(      
+                              borderSide: BorderSide(color: new Color(0xffB7E4F4)), 
+                            ), 
                           ),
                         ),
                       ),
@@ -64,7 +67,11 @@ class _SignUpState extends State<SignUp> {
                             hintText: 'Birth Place',
                             hintStyle: TextStyle(
                               color: new Color(0xffFFFFFF),
-                              fontStyle: FontStyle.italic
+                              fontStyle: FontStyle.italic,
+                              
+                            ),
+                            enabledBorder: UnderlineInputBorder(      
+                              borderSide: BorderSide(color: new Color(0xffB7E4F4)),   
                             ),
                           ),
                         ),
@@ -79,6 +86,9 @@ class _SignUpState extends State<SignUp> {
                               color: new Color(0xffFFFFFF),
                               fontStyle: FontStyle.italic
                             ),
+                            enabledBorder: UnderlineInputBorder(      
+                              borderSide: BorderSide(color: new Color(0xffB7E4F4)),     
+                            ),
                           ),
                         ),
                       ),
@@ -92,6 +102,9 @@ class _SignUpState extends State<SignUp> {
                               color: new Color(0xffFFFFFF),
                               fontStyle: FontStyle.italic
                             ),
+                            enabledBorder: UnderlineInputBorder(      
+                              borderSide: BorderSide(color: new Color(0xffB7E4F4)),     
+                            ),
                           ),
                         ),
                       ),
@@ -104,6 +117,9 @@ class _SignUpState extends State<SignUp> {
                             hintStyle: TextStyle(
                               color: new Color(0xffFFFFFF),
                               fontStyle: FontStyle.italic
+                            ),
+                            enabledBorder: UnderlineInputBorder(      
+                              borderSide: BorderSide(color: new Color(0xffB7E4F4)),    
                             ),
                           ),
                         ),
@@ -119,33 +135,36 @@ class _SignUpState extends State<SignUp> {
                               color: new Color(0xffFFFFFF),
                               fontStyle: FontStyle.italic
                             ),
+                            enabledBorder: UnderlineInputBorder(      
+                              borderSide: BorderSide(color: new Color(0xffB7E4F4)),     
+                            ),
                           ),
                         ),
                       ),
                       new Container(
-                    padding: new EdgeInsets.only(top: 60.0, right: 40.0,left: 40.0),
-                    alignment: Alignment.centerLeft,
-                      child: Material(
-                        borderRadius: new BorderRadius.circular(30.0),
-                        color: new Color(0xff36A5C1),
-                        shadowColor: Colors.lightBlueAccent.shade200,
-                        elevation: 5.0,
-                        child: MaterialButton(
-                          minWidth: 400.0,
-                          height: 42.0,
-                          onPressed: (){
-                             Navigator.of(context).pushReplacementNamed('/LoginPage');
-                          },
-                          child: Text(
-                            "Sign Up",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold
-                            ),        
+                        padding: new EdgeInsets.only(top: 60.0, right: 40.0,left: 40.0),
+                        alignment: Alignment.centerLeft,
+                        child: Material(
+                          borderRadius: new BorderRadius.circular(30.0),
+                          color: new Color(0xff36A5C1),
+                          shadowColor: Colors.lightBlueAccent.shade200,
+                          elevation: 5.0,
+                          child: MaterialButton(
+                            minWidth: 400.0,
+                            height: 42.0,
+                            onPressed: (){
+                              Navigator.of(context).pushReplacementNamed('/LoginPage');
+                            },
+                            child: Text(
+                              "Sign Up",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold
+                              ),        
+                            ),
                           ),
                         ),
                       ),
-                  ),
                     ],
                   ),
                   new Row(

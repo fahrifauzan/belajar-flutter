@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           Column(
             children: <Widget>[
-              new Column(
+              Column(
                 children: <Widget>[
                   new Container(
                     alignment: Alignment.centerLeft,
@@ -66,15 +66,18 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  new Container(
-                    padding: new EdgeInsets.only(top: 60.0, right: 40.0,left: 40.0),
+                  Container(
+                    padding: EdgeInsets.only(top: 60.0, right: 40.0,left: 40.0),
                     alignment: Alignment.centerLeft,
-                    child: new TextField(
+                    child: TextField(
                       decoration: InputDecoration(
                         hintText: 'please input email',
                         hintStyle: TextStyle(
                           fontStyle: FontStyle.italic
                         ),
+                        enabledBorder: UnderlineInputBorder(      
+                          borderSide: BorderSide(color: Colors.cyan),     
+                        ),    
                       ),
                     ),
                   ),
@@ -88,6 +91,9 @@ class _LoginPageState extends State<LoginPage> {
                         hintStyle: TextStyle(
                           fontStyle: FontStyle.italic
                         ),
+                        enabledBorder: UnderlineInputBorder(      
+                          borderSide: BorderSide(color: Colors.cyan),     
+                        ), 
                       ),
                     ),
                   ),

@@ -3,30 +3,30 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
-  const StaggeredTile.count(2, 2),
-  const StaggeredTile.count(2, 1),
-  const StaggeredTile.count(1, 2),
+  const StaggeredTile.count(1, 1.5),
   const StaggeredTile.count(1, 1),
-  const StaggeredTile.count(2, 2),
-  const StaggeredTile.count(1, 2),
+  const StaggeredTile.count(1, 1.5),
   const StaggeredTile.count(1, 1),
-  const StaggeredTile.count(3, 1),
+  const StaggeredTile.count(1, 1.5),
   const StaggeredTile.count(1, 1),
-  const StaggeredTile.count(4, 1),
+  const StaggeredTile.count(1, 1.5),
+  const StaggeredTile.count(1, 1),
+  const StaggeredTile.count(1, 1.5),
+  const StaggeredTile.count(1, 1),
 ];
 
 
 List<Widget> _tiles = const <Widget>[
-  const _ImageTile('https://picsum.photos/200/300/?random'),
-  const _ImageTile('https://picsum.photos/201/300/?random'),
-  const _ImageTile('https://picsum.photos/202/300/?random'),
-  const _ImageTile('https://picsum.photos/203/300/?random'),
-  const _ImageTile('https://picsum.photos/204/300/?random'),
-  const _ImageTile('https://picsum.photos/205/300/?random'),
-  const _ImageTile('https://picsum.photos/206/300/?random'),
-  const _ImageTile('https://picsum.photos/207/300/?random'),
-  const _ImageTile('https://picsum.photos/208/300/?random'),
-  const _ImageTile('https://picsum.photos/209/300/?random'),
+  const _ImageTile(Colors.green, Icons.widgets),
+  const _ImageTile(Colors.lightBlue, Icons.wifi),
+  const _ImageTile(Colors.amber, Icons.panorama_wide_angle),
+  const _ImageTile(Colors.brown, Icons.map),
+  const _ImageTile(Colors.deepOrange, Icons.send),
+  const _ImageTile(Colors.indigo, Icons.airline_seat_flat),
+  const _ImageTile(Colors.red, Icons.bluetooth),
+  const _ImageTile(Colors.pink, Icons.battery_alert),
+  const _ImageTile(Colors.purple, Icons.desktop_windows),
+  const _ImageTile(Colors.blue, Icons.radio),
 ];
 
 class MenuPage extends StatefulWidget {
@@ -38,49 +38,51 @@ class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints viewportConstraints) {
-          return SingleChildScrollView(
-            
-            child: Container(
-              constraints: BoxConstraints(
-                minHeight: viewportConstraints.maxHeight,
+      body: Stack(
+        children: <Widget>[
+          Column(
+            children: <Widget>[
+              ImageCarousel(),
+              Container(
+                margin: new EdgeInsets.only(top: 20.0),
               ),
-              
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
+              Row(
                 children: <Widget>[
-
-                  ImageCarousel(),
-
-                  Container(
-                    margin: new EdgeInsets.only(top: 10.0),
+                  Icon(
+                    Icons.home, 
+                    color: new Color(0xff5E5F5F)
                   ),
-
-                  Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.home, 
-                        color: new Color(0xff5E5F5F)
-                      ),
-                      Text(
-                      "MENU", 
-                        style: TextStyle(
-                          color: new Color(0xff36A5C1),
-                          fontSize: 12.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.bold
-                        ),
-                      ),
-                    ],
+                  Text(
+                  "MENU", 
+                    style: TextStyle(
+                      color: new Color(0xff36A5C1),
+                      fontSize: 12.0,
+                      letterSpacing: 0.0,
+                      fontWeight: FontWeight.bold
+                    ),
                   ),
-                  // MetroGrid(),
                 ],
               ),
-            ),
-          );
-        },
+            ],
+          ),
+          new Container(
+            margin: new EdgeInsets.only(top: 300.0),
+            child: MetroGrid(),
+          )
+        ],
       )
+      // body: LayoutBuilder(
+      //   builder: (BuildContext context, BoxConstraints viewportConstraints) {
+      //     return SingleChildScrollView(
+      //       child: Container(
+      //         constraints: BoxConstraints(
+      //           minHeight: viewportConstraints.maxHeight,
+      //         ),
+              
+      //       ),
+      //     );
+      //   },
+      // )
     );
   }
 }
@@ -98,7 +100,7 @@ class ImageCarousel extends StatelessWidget {
         ],
         dotColor: Colors.lightBlueAccent,
         dotSize: 3.0,
-        autoplayDuration: Duration(seconds: 10),
+        // autoplayDuration: Duration(seconds: 10),
       )
     );
   }
@@ -110,7 +112,7 @@ class MetroGrid extends StatelessWidget{
     return Padding(
       padding: const EdgeInsets.only(top: 12.0),
         child: new StaggeredGridView.count(
-          crossAxisCount: 4,
+          crossAxisCount: 2,
           staggeredTiles: _staggeredTiles,
           children: _tiles,
           mainAxisSpacing: 4.0,
@@ -121,27 +123,26 @@ class MetroGrid extends StatelessWidget{
 }
 
 class _ImageTile extends StatelessWidget {
-  const _ImageTile(this.gridImage);
+  const _ImageTile(this.backgroundColor, this.iconData);
 
-  final gridImage;
+  final Color backgroundColor;
+  final IconData iconData;
+  // final gridImage;
 
   @override
   Widget build(BuildContext context) {
     return new Card(
-      color: const Color(0x00000000),
-      elevation: 3.0,
-      child: new GestureDetector(
-        onTap: () {
-          print("hello");
-        },
-        child: new Container(
-            decoration: new BoxDecoration(
-              image: new DecorationImage(
-                image: new NetworkImage(gridImage),
-                fit: BoxFit.cover,
-              ),
-              borderRadius: new BorderRadius.all(const Radius.circular(10.0)),
-            )
+      color: backgroundColor,
+      child: new InkWell(
+        onTap: () {},
+        child: new Center(
+          child: new Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: new Icon(
+              iconData,
+              color: Colors.white,
+            ),
+          ),
         ),
       ),
     );
@@ -166,7 +167,7 @@ class _ImageTile extends StatelessWidget {
 
 
 
-  // ImageCarousel(),
+                  // ImageCarousel(),
                   // // Example01(),
                   // Padding(
                   //   padding: EdgeInsets.only(top: 10.0),
