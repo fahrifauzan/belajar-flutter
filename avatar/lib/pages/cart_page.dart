@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:carousel_pro/carousel_pro.dart';
 
 List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
   const StaggeredTile.count(2, 2),
@@ -42,8 +43,9 @@ class _CartPageState extends State<CartPage> {
         children: <Widget>[
           Column(
             children: <Widget>[
+              ImageCarousel(),
               Container(
-                margin: new EdgeInsets.only(top: 200.0),
+                margin: new EdgeInsets.only(top: 10.0),
               ),
               Row(
                 children: <Widget>[
@@ -65,7 +67,7 @@ class _CartPageState extends State<CartPage> {
             ],
           ),
           new Container(
-            margin: new EdgeInsets.only(top: 200.0),
+            margin: new EdgeInsets.only(top: 280.0),
             child: MetroGrid(),
           )
         ],
@@ -114,6 +116,24 @@ class _ImageTile extends StatelessWidget {
             )
         ),
       ),
+    );
+  }
+}
+
+class ImageCarousel extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 300.0,
+      width: 415.0,
+      child: new Carousel(
+        images: [
+          new NetworkImage('https://picsum.photos/200/300/?random'),
+          new NetworkImage('https://picsum.photos/204/300/?random'),
+          new NetworkImage("https://picsum.photos/206/300/?random"),
+        ],
+        dotColor: Colors.lightBlueAccent,
+      )
     );
   }
 }
