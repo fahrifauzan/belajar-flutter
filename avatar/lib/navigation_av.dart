@@ -25,37 +25,50 @@ class _NavAvatarState extends State<NavAvatar> {
   Widget build(BuildContext context) {
     return Scaffold(
      body: list[_currentIndex],
-     bottomNavigationBar: BottomNavigationBar(
-       items: [
-         BottomNavigationBarItem(
-           icon: Icon(Icons.home, color: new Color(0xff5E5F5F)),
-           title: Text('')
-          ),
-         BottomNavigationBarItem(
-           icon: Icon(Icons.event_note, color: new Color(0xff5E5F5F)),
-           title: Text('')
-          ),
-         BottomNavigationBarItem(
-           icon: Icon(Icons.pin_drop, color: new Color(0xff5E5F5F)),
-           title: Text('')
+     bottomNavigationBar: new Theme(
+       data: Theme.of(context).copyWith(
+        // sets the background color of the `BottomNavigationBar`
+        // canvasColor: Colors.green,
+        // sets the active color of the `BottomNavigationBar` if `Brightness` is light
+        primaryColor: new Color(0xff36A5C1),
+        textTheme: Theme
+            .of(context)
+            .textTheme
+            .copyWith(caption: new TextStyle(color: new Color(0xff5E5F5F))
+        )
+      ),
+      child: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home,),
+            title: Text('')
           ),
           BottomNavigationBarItem(
-           icon: Icon(Icons.local_grocery_store, color: new Color(0xff5E5F5F)),
-           title: Text('')
+            icon: Icon(Icons.event_note, ),
+            title: Text('')
           ),
-         BottomNavigationBarItem(
-           icon: Icon(Icons.person, color: new Color(0xff5E5F5F)),
-           title: Text('')
+          BottomNavigationBarItem(
+            icon: Icon(Icons.pin_drop,),
+            title: Text('')
           ),
-       ],
-       currentIndex: _currentIndex,
-       onTap: (int index) {
-         setState(() {
-                    _currentIndex = index;
-                  });
-        //  _currentIndex = index;
-       },
-       
+          BottomNavigationBarItem(
+            icon: Icon(Icons.local_grocery_store,),
+            title: Text('')
+            ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person, ),
+            title: Text('')
+          ),
+        ],
+        currentIndex: _currentIndex,
+        onTap: (int index) {
+          setState(() {
+                      _currentIndex = index;
+                    });
+        }, 
+      ),
      ),
       // bottomNavigationBar: BottomAppBar(
       //   child: new Row(
