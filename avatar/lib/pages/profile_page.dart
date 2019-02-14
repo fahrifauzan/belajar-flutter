@@ -6,14 +6,53 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: new AppBar(
+      //   title: new Text("Drawer Demo"),
+      // ),
+      key: _scaffoldKey,
+      endDrawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Text(
+                'Fahri Fauzan',
+                style: TextStyle(
+                        color: new Color(0xffFFFFFF),
+                        fontSize: 20.0,
+                        letterSpacing: 2.0,
+                        fontWeight: FontWeight.bold
+                      ),
+              ),
+              decoration: BoxDecoration(
+                color: new Color(0xff3EB3D0),
+              ),
+            ),
+            ListTile(
+              title: Text('Your History'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+              },
+            ),
+            ListTile(
+              title: Text('Edit Profile'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+              },
+            ),
+          ],  
+        ),
+      ),
         body: Stack(
           alignment: Alignment.center,
           children: <Widget>[
-
             // background image and bottom contents
             Column(
               children: <Widget>[
@@ -21,6 +60,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   height: 200.0,
                   color: new Color(0xff3EB3D0),
                 ),
+                
                 Expanded(
                   child: Container(
                     decoration: BoxDecoration(
@@ -34,6 +74,23 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
 
+            Positioned(
+              top: 60.0,
+              right: 20.0,
+              child: Container(
+                height: 50.0,
+                width: 50.0,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: new Color(0xffFFFFFF),
+                ), 
+                child: IconButton(
+                  icon: Icon(Icons.dehaze,),
+                  onPressed: () => _scaffoldKey.currentState.openEndDrawer(),
+                  color: new Color(0xff3EB3D0),
+                )
+              ),    
+            ),
             // Profile image
             Positioned(
               top: 150.0, // (background container size) - (circle height / 2)
@@ -154,6 +211,15 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ],
         ),
+      //   drawer: Drawer(
+      //   child: SafeArea(
+      //     right: false,
+      //     child: Center(
+      //       child: Text('Drawer content'),
+      //     ),
+      //   ),
+      // ),
     );
   }
 }
+
