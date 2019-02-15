@@ -35,16 +35,19 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             ListTile(
               title: Text('Your History'),
+              leading: Icon(Icons.history),
               onTap: () {
                 // Update the state of the app
                 // ...
               },
             ),
             ListTile(
+              leading: const Icon(Icons.mode_edit),
               title: Text('Edit Profile'),
+              // trailing: Icon(Icons.arrow_forward),
               onTap: () {
-                // Update the state of the app
-                // ...
+                Navigator.of(context).pop();
+                Navigator.of(context).pushNamed('/EP');
               },
             ),
           ],  
@@ -53,7 +56,7 @@ class _ProfilePageState extends State<ProfilePage> {
         body: Stack(
           alignment: Alignment.center,
           children: <Widget>[
-            // background image and bottom contents
+            // background image and bottom contentss
             Column(
               children: <Widget>[
                 Container(
@@ -160,7 +163,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   alignment: Alignment.centerLeft,
                   margin: new EdgeInsets.only(top: 540.0, left: 43.0),
                   child: new Icon(
-                    Icons.cloud, 
+                    Icons.cloud_queue, 
                     color: new Color(0xffFFFFFF),
                     size: 80.0
                   ),

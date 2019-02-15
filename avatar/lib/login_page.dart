@@ -147,7 +147,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         onPressed: (){
-                          Navigator.of(context).pushReplacementNamed('/SignUp');
+                          Navigator.of(context).pushReplacementNamed('/EP');
                         },
                       ),
                   ),
@@ -160,3 +160,4 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+// sss
