@@ -6,203 +6,104 @@ class EditProfiless extends StatefulWidget {
 }
 
 class _EditProfileState extends State< EditProfiless> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Stack(
-        fit:StackFit.expand,
-        children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              color: new Color(0xff0087BA),
-              gradient: LinearGradient(
-                colors: [new Color(0xff0087BA), new Color(0xff61C199)],
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter,
-              )
-            )
-          ),
-
-          Column(
-            // mainAxisAlignment: MainAxisAlignment.centerLeft,
-            children: <Widget>[
-              Column(
-                children: <Widget>[
-                  new Column(
-                    children: <Widget>[
-                      new Container(
-                        alignment: Alignment.centerLeft,
-                        margin: new EdgeInsets.only(top: 100.0, left: 40.0),
-                        child: new Text(
-                          "Register",
-                          style: TextStyle(
-                            color: new Color(0xffFFFFFF),
-                            fontSize: 38.0,
-                            letterSpacing: 2.0,
-                            fontWeight: FontWeight.bold
-                          ),
-                        ),
-                      ),
-                      new Container(
-                        padding: new EdgeInsets.only(top: 60.0, right: 40.0,left: 40.0),
-                        alignment: Alignment.centerLeft,
-                        child: new TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Full Name',
-                            hintStyle: TextStyle(
-                              color: new Color(0xffFFFFFF),
-                              fontStyle: FontStyle.italic
-                            ),
-                            enabledBorder: UnderlineInputBorder(      
-                              borderSide: BorderSide(color: new Color(0xffB7E4F4)), 
-                            ), 
-                          ),
-                        ),
-                      ),
-                      new Container(
-                        padding: new EdgeInsets.only(right: 40.0,left: 40.0),
-                        alignment: Alignment.centerLeft,
-                        child: new TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Birth Place',
-                            hintStyle: TextStyle(
-                              color: new Color(0xffFFFFFF),
-                              fontStyle: FontStyle.italic,
-                              
-                            ),
-                            enabledBorder: UnderlineInputBorder(      
-                              borderSide: BorderSide(color: new Color(0xffB7E4F4)),   
-                            ),
-                          ),
-                        ),
-                      ),
-                      new Container(
-                        padding: new EdgeInsets.only(right: 40.0,left: 40.0),
-                        alignment: Alignment.centerLeft,
-                        child: new TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Birth Date',
-                            hintStyle: TextStyle(
-                              color: new Color(0xffFFFFFF),
-                              fontStyle: FontStyle.italic
-                            ),
-                            enabledBorder: UnderlineInputBorder(      
-                              borderSide: BorderSide(color: new Color(0xffB7E4F4)),     
-                            ),
-                          ),
-                        ),
-                      ),
-                      new Container(
-                        padding: new EdgeInsets.only(right: 40.0,left: 40.0),
-                        alignment: Alignment.centerLeft,
-                        child: new TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Email',
-                            hintStyle: TextStyle(
-                              color: new Color(0xffFFFFFF),
-                              fontStyle: FontStyle.italic
-                            ),
-                            enabledBorder: UnderlineInputBorder(      
-                              borderSide: BorderSide(color: new Color(0xffB7E4F4)),     
-                            ),
-                          ),
-                        ),
-                      ),
-                      new Container(
-                        padding: new EdgeInsets.only(right: 40.0,left: 40.0),
-                        alignment: Alignment.centerLeft,
-                        child: new TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Phone Number',
-                            hintStyle: TextStyle(
-                              color: new Color(0xffFFFFFF),
-                              fontStyle: FontStyle.italic
-                            ),
-                            enabledBorder: UnderlineInputBorder(      
-                              borderSide: BorderSide(color: new Color(0xffB7E4F4)),    
-                            ),
-                          ),
-                        ),
-                      ),
-                      new Container(
-                        padding: new EdgeInsets.only(right: 40.0,left: 40.0),
-                        alignment: Alignment.centerLeft,
-                        child: new TextField(
-                          obscureText: true,
-                          decoration: InputDecoration(
-                            hintText: 'Password',
-                            hintStyle: TextStyle(
-                              color: new Color(0xffFFFFFF),
-                              fontStyle: FontStyle.italic
-                            ),
-                            enabledBorder: UnderlineInputBorder(      
-                              borderSide: BorderSide(color: new Color(0xffB7E4F4)),     
-                            ),
-                          ),
-                        ),
-                      ),
-                      new Container(
-                        padding: new EdgeInsets.only(top: 60.0, right: 40.0,left: 40.0),
-                        alignment: Alignment.centerLeft,
-                        child: Material(
-                          borderRadius: new BorderRadius.circular(30.0),
-                          color: new Color(0xff36A5C1),
-                          shadowColor: Colors.lightBlueAccent.shade200,
-                          elevation: 5.0,
-                          child: MaterialButton(
-                            minWidth: 400.0,
-                            height: 42.0,
-                            onPressed: (){
-                              Navigator.of(context).pushReplacementNamed('/LoginPage');
-                            },
-                            child: Text(
-                              "Sign Up",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold
-                              ),        
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+      key: _scaffoldKey,
+        body: Stack(
+          alignment: Alignment.center,
+          children: <Widget>[
+            // background image and bottom contentss
+            Column(
+              children: <Widget>[
+                Container(
+                  height: 200.0,
+                   decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("images/bg.jpg"),
+                        fit: BoxFit.cover
+                      )
+                    ),
+                ),
+                Expanded(
+                  child: Container(
+                   
                   ),
-                  new Row(
-                    children: <Widget>[
-                      new Container(
-                        padding: new EdgeInsets.only(left: 70.0, top: 10.0),
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          "Already have an account?",
-                          style: TextStyle(
-                            letterSpacing: 0.5
+                ),
+              ],
+            ),
+
+            Positioned(
+              top: 50.0,
+              right: 20.0,
+              child: Container(
+                height: 35.0,
+                width: 35.0,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: new Color(0xff3EB3D0),
+                ), 
+                child: IconButton(
+                  icon: Icon(Icons.edit,),
+                  onPressed: () => _scaffoldKey.currentState.openEndDrawer(),
+                  color: new Color(0xffFFFFFF),
+                  iconSize: 20.0,
+                  alignment: Alignment.center,
+                )
+              ),    
+            ),
+            // Profile image
+            Positioned(
+              top: 150.0, // (background container size) - (circle height / 2)
+              left: 50.0,
+              child: Container(
+                height: 100.0,
+                width: 100.0,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: new Color(0xff8E8E8E),
+                  border: Border.all(
+                    color: new Color(0xff3EB3D0),
+                    width: 6.0
+                  )
+                ),
+                child: Icon(
+                  Icons.person,
+                  color: new Color(0xffFFFFFF),
+                  size: 80.0
+                ), 
+              ),
+            ),
+            new Container(
+                    padding: new EdgeInsets.only(top: 650.0),
+                    alignment: Alignment.center,
+                      child: Material(
+                        borderRadius: new BorderRadius.circular(30.0),
+                        color: new Color(0xff36A5C1),
+                        shadowColor: Colors.lightBlueAccent.shade200,
+                        elevation: 5.0,
+                        child: MaterialButton(
+                          minWidth: 300.0,
+                          height: 55.0,
+                          onPressed: (){
+                            Navigator.of(context).pushReplacementNamed('/NavAvatar');
+                          },
+                          child: Text(
+                            "Save",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1.5,
+                              fontSize: 17.0,
+                            ),        
                           ),
                         ),
                       ),
-                      new Container(
-                        padding: new EdgeInsets.only(top: 10.0),
-                        alignment: Alignment.centerLeft,
-                          child: FlatButton(
-                            child: Text(
-                              "Sign In",
-                              style: TextStyle(
-                                color: new Color(0xffFFFFFF),
-                                letterSpacing: 0.0
-                              ),
-                            ),
-                            onPressed: (){
-                              Navigator.of(context).pushReplacementNamed('/LoginPage');
-                            },
-                          ),
-                      ),
-                    ],
-                  )
-                ],
-              )
-            ],
-          ),
-        ],
-      ),
+                  ),
+          ],
+        ),
     );
   }
 }
